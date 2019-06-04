@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>NxS Info Tool - ReadMe</title>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<style type="text/css">
+/*<![CDATA[*/
+
+body
+        {
+        padding: 10px;
+        background-color: #F0F0F0;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        font-weight: normal;
+        }
+
+p
+        {
+        font-size: 100%;
+        margin: 20px;
+        }
+
+.center
+        {
+        text-align: center;
+        }
+
+table
+        {
+        margin: auto;
+        text-align: left;
+        background-color: #FFFFFF;
+        }
+
+.maintable
+        {
+        border: 2px solid #376EAB;
+        }
+
+.parameter
+        {
+        font-weight: bold;
+        color: #6586AC;
+        }
+
+
+h1
+        {
+        font-size: 220%;
+        color: #333333;
+        font-weight: normal;
+        text-align: center;
+        margin: 20px;
+        }
+
+h2
+        {
+        font-size: 165%;
+        color: #7A7272;
+        font-weight: normal;
+        }
+
+h3
+        {
+        font-size: 140%;
+        font-weight: bold;
+        color: #303030;
+        margin: 20px;
+        }
+
+pre     {
+        font-size: 100%;
+        margin: 20px;
+        }
+
+div
+        {
+        margin: 20px;
+        }
+
+a:link, a:visited, a:active
+        {
+        color: #294F75;
+        text-decoration: none;
+        }
+
+a:hover
+        {
+        color: #182634;
+        text-decoration: underline;
+        }
+
+.subtable
+        {
+        border: 0px;
+        margin-left: 20px;
+        margin-right: 20px;
+        }
+
+.lefttable
+        {
+        background-color: #CCCCCC;
+        vertical-align: top;
+        }
+
+.righttable
+        {
+        background-color: #EEEEEE;
+        vertical-align: top;
+        }
+/*]]>*/
+</style>
+</head>
+<body>
+<div class="center">
+<table width="750" class="maintable" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+
+<h1>NxS Info Tool - ReadMe</h1>
+<div>
+
+<h2>Introduction</h2>
+<p>
+NxS Info Tool is a general purpose plug-in for Winamp that demonstrates and
+utilizes many of the new API features in Winamp 5.<br/>
+The plugin creates it's own window that is skinned the same way that Winamp is.
+It consist of a tabbed dialog box with many pages that you can access by clicking
+their respective tab.
+</p><p>
+These are the tabs:<br/>
+<ul>
+<li>Info - Various information</li>
+<li>Vis' data - Spectrum analyser/Oscilloscope data</li>
+<li>Embed wnds - Embedded window enumerator</li>
+<li>Misc - Call Winamp's common dialogs &amp; get playlist editor info + a lot of buttons to click.</li>
+<li>Conversion - Conversion/CD Burning API</li>
+<li>Metadata - Access metadata information and play with advanced title formatting</li>
+</ul>
+</p>
+<h2>What's new?</h2>
+<p>
+...
+</p>
+
+
+<h2>Notes</h2>
+<p>This plug-in uses the new API of Winamp 5 and above. So to get the most out of it,
+please download and install the latest <a href="http://www.winamp.com/player/">Winamp</a>.</p>
+
+<h2>Development notes</h2>
+<p>Please read through the included source code if you can. And send me some E-Mails about it...</p>
+
+<h2>Contact</h2>
+<table class="subtable">
+<tr><td class="lefttable">Homepage</td><td class="righttable">
+<a href="http://members.tripod.com/files_saivert/">http://members.tripod.com/files_saivert/</a>
+</td></tr>
+<tr><td class="lefttable">E-Mail</td><td class="righttable">
+<a href="mailto:saivert@email.com">saivert@email.com</a>
+</td></tr>
+</table>
+
+<h2>Version history</h2>
+<ul>
+  <li>Version 1.6
+    <ul>
+      <li>CD Burning and Conversion now works. I discoered (very late) that only the
+          CD Audio tracks could be converted. Was testing with MP3 files for a long time
+          until I gave up. It was when I recently tried to fix it once again, I made the discovery. </li>
+      <li>Added peaks and falloff to the vis' on the "Vis' data" page.</li>
+      <li>Now uses the NxS_TabPages class</li>
+    </ul>
+  </li>
+  <li>Version 1.5
+    <ul>
+      <li>Added new button on "Conversion" page to test the IPC_BURN_CD message.</li>
+      <li>Now uses the NxS_TabPages class</li>
+    </ul>
+  </li>
+  <li>Version 1.4
+    <ul>
+      <li>Added new page "Conversion" to test the IPC_CONVERTFILE message.</li>
+    </ul>
+  </li>
+  <li>Version 1.1 to 1.3
+    <ul>
+      <li>Minor improvements I forgot about.</li>
+    </ul>
+  </li>
+  <li>Version 1.0
+    <ul>
+      <li>First release on Winamp.com</li>
+      <li>I have used "AgressiveOptimize.h" to combine code segments but,
+      if someone have any ideas how to shrink DLL size more than this, send me an e-mail.</li>
+    </ul>
+  </li>
+</ul>
+<h2>Known bugs list</h2>
+<ul>
+   <li>We just say there is a lot okay!??</li>
+</ul>
+
+<h2>License</h2>
+<pre>
+Portions Copyright &copy; 2002-2003:
+- Nullsoft, Inc.
+
+This software is provided 'as-is', without any express or implied
+warranty. In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute
+it freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented;
+   you must not claim that you wrote the original software.
+   If you use this software in a product, an acknowledgment in the
+   product documentation would be appreciated but is not required.
+2. Altered versions must be plainly marked as such,
+   and must not be misrepresented as being the original software.
+3. This notice may not be removed or altered from any distribution.
+</pre>
+
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Norwegian (Bokmal) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NOR)
+#ifdef _WIN32
+LANGUAGE LANG_NORWEGIAN, SUBLANG_NORWEGIAN_BOKMAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+THINGERDLG DIALOG DISCARDABLE  0, 0, 171, 34
+STYLE WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "<",IDC_LEFTSCROLLBTN,0,0,10,24
+    PUSHBUTTON      ">",IDC_RIGHTSCROLLBTN,160,0,10,24
+    EDITTEXT        IDC_EDIT1,0,25,170,9,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER
+END
+
+CONFIG DIALOGEX 0, 0, 192, 226
+STYLE DS_MODALFRAME | DS_NOFAILCREATE | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Thinger Configuration"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",1,75,205,50,14
+    PUSHBUTTON      "Cancel",2,131,205,50,14
+    GROUPBOX        "General",-1,5,5,180,35
+    CONTROL         "Enable (requires restart of Winamp)",1018,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,15,126,10
+    GROUPBOX        "Appearance",-1,5,45,180,45
+    CONTROL         "Show statusbar (default = checked)",1019,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,55,160,10
+    GROUPBOX        "About",-1,5,95,180,105
+    LTEXT           "Written by Saivert",-1,15,150,57,8
+    LTEXT           "NxS Thinger - for that Winamp3 feeling.",-1,15,105,162,
+                    11
+    LTEXT           "Homepage:",-1,15,161,38,8
+    CONTROL         "http://inthegray.com/saivert/",1032,"NxSWebLink_2347890",
+                    WS_TABSTOP,15,171,161,10
+    CONTROL         "Use lightning bolt to toggle Thinger",1033,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,25,125,10
+    CONTROL         "ReadMe",1034,"NxSWebLink_2347890",WS_TABSTOP,15,184,161,
+                    10
+    CTEXT           "Remember those who lost their lives because of the terrible tsunami in south-east asia.",
+                    0,14,120,163,23
+    CONTROL         "Dim icons when scrolling",IDC_DIMWHENSCROLLCB,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,65,160,10
+    CONTROL         "Skin this configuration dialog",IDC_SKINCONFIG,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,75,160,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+MENU1 MENU DISCARDABLE 
+BEGIN
+    POPUP "contextmenu"
+    BEGIN
+        POPUP "Debug"
+        BEGIN
+            MENUITEM "Show Message boxes",          10
+            MENUITEM "Show icon info...",           11
+        END
+        POPUP "Show built-in icons"
+        BEGIN
+            MENUITEM "Playlist Editor",             20
+            MENUITEM "Media Library",               21
+            MENUITEM "Video window",                22
+            MENUITEM "Toggle Visualization",        23
+            MENUITEM "Toggle Preferences",          24
+        END
+        MENUITEM "Config...",                   1
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    "THINGERDLG", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 164
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 27
+    END
+
+    "CONFIG", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 159
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_PLEDIT              BITMAP  DISCARDABLE     "icon_pledit.bmp"
+IDB_ML                  BITMAP  DISCARDABLE     "icon_ml.bmp"
+IDB_VIS                 BITMAP  DISCARDABLE     "icon_vis.bmp"
+IDB_VIDEO               BITMAP  DISCARDABLE     "icon_video.bmp"
+IDB_VIS_H               BITMAP  DISCARDABLE     "icon_vis_h.bmp"
+IDB_ML_H                BITMAP  DISCARDABLE     "icon_ml_h.bmp"
+IDB_PLEDIT_H            BITMAP  DISCARDABLE     "icon_pledit_h.bmp"
+IDB_VIDEO_H             BITMAP  DISCARDABLE     "icon_video_h.bmp"
+IDB_PREFS_H             BITMAP  DISCARDABLE     "icon_prefs.h.bmp"
+IDB_PREFS               BITMAP  DISCARDABLE     "icon_prefs.bmp"
+IDB_NEW_H               BITMAP  DISCARDABLE     "icon_new_h.bmp"
+IDB_NEW                 BITMAP  DISCARDABLE     "icon_new.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_NEW_H               ICON    DISCARDABLE     "icon1.ico"
+IDI_NEW                 ICON    DISCARDABLE     "new_h1.ico"
+#endif    // Norwegian (Bokmal) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

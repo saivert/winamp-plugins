@@ -1,0 +1,248 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Norwegian (Bokmal) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NOR)
+#ifdef _WIN32
+LANGUAGE LANG_NORWEGIAN, SUBLANG_NORWEGIAN_BOKMAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Data
+//
+
+IDR_WHATSNEW RCDATA "readme.txt"
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONFIGPAGE DIALOGEX 0, 0, 276, 251
+STYLE DS_SETFONT | DS_CONTROL | WS_CHILD
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "Tab1",IDC_TAB1,"SysTabControl32",WS_TABSTOP,0,0,275,250
+END
+
+IDD_ABOUT DIALOG  0, 0, 272, 231
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    CONTROL         "http://inthegray.com/saivert/",IDC_URLBUTTON,"NxSWebLink",
+                    WS_TABSTOP,5,30,180,10
+    CONTROL         "NxS Balloon Tip Forum Thread",IDC_URLBUTTON2,"NxSWebLink",
+                    WS_TABSTOP,5,45,180,10
+    CTEXT           "{version}",IDC_VERSION,5,10,180,8
+    CTEXT           "{osversion}",IDC_OSVERSION,5,86,180,8
+    CONTROL         "",IDC_SAFRAME,"Static",SS_BLACKRECT,195,5,65,80
+    CTEXT           "Written by Saivert (Norway)",IDC_STATIC,5,20,180,8
+    LTEXT           "^-- nice visualization",IDC_STATIC,195,90,64,8
+    GROUPBOX        "What's new",IDC_STATIC,5,104,255,115
+    EDITTEXT        IDC_WHATSNEWEDIT,10,115,245,100,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    CTEXT           "You are running on:",IDC_STATIC,5,75,180,8
+    CONTROL         "ReadMe and format syntax",IDC_READMEBTN,"NxSWebLink",
+                    WS_TABSTOP,5,60,180,10
+END
+
+IDD_TITLEFORMAT DIALOGEX 0, 0, 267, 226
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CONTROL | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "Title format"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_FORMATEDIT,10,15,245,25,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | WS_HSCROLL
+    CONTROL         "Format syntax and ReadMe",IDC_SYNTAXBTN,"NxSWebLink",
+                    WS_TABSTOP,5,215,90,9
+    GROUPBOX        "Title formatting",IDC_STATIC,5,5,255,70
+    GROUPBOX        "Balloon Title",IDC_STATIC,5,79,255,76
+    EDITTEXT        IDC_BALLOONTITLEEDIT,10,89,245,25,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | WS_HSCROLL
+    PUSHBUTTON      "Default",IDC_DEFBALLOONTITLEBTN,205,119,50,14
+    PUSHBUTTON      "Default",IDC_DEFBUTTON,205,45,50,14
+    LTEXT           "Format tags can be %artist%, %title% and so on. For more detailed info on this click the link below (Format syntax and ReadMe).",
+                    IDC_STATIC,10,45,190,25
+    PUSHBUTTON      "Test",IDC_TEST,210,210,50,14
+    LTEXT           "Here you specify the format of the balloon title. The balloon title appear in bold between the icon and the close button (close button not available in Windows 2000) above the balloon tip text.",
+                    IDC_STATIC,10,119,190,35
+    GROUPBOX        "Copy to clipboard title",IDC_STATIC,5,160,255,45
+    EDITTEXT        IDC_CLIPBOARDTITLEEDIT,10,170,245,25,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | WS_HSCROLL
+END
+
+IDD_GENERAL DIALOGEX 0, 0, 267, 230
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CONTROL | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "General"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "&Enable this plug-in",IDC_ENABLEDCB,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,20,90,10
+    GROUPBOX        "Icon options",IDC_STATIC,5,55,255,55
+    CONTROL         "Use winamp's tray icon",IDC_USEWATRAYCB,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,67,88,10
+    LTEXT           "Note: While enabling this option integrates the plug-in more with Winamp, leaving this option off gives you the ability to click balloon to skip to next song.",
+                    IDC_STATIC,15,80,185,25
+    GROUPBOX        "Icon",IDC_STATIC,210,65,40,30
+    ICON            102,IDC_ICONCTL,218,79,20,20,SS_NOTIFY
+    GROUPBOX        "Global hotkey",IDC_STATIC,5,170,255,50
+    LTEXT           "This plug-in registers a couple of hotkey actions with the Global Hotkeys plug-in (bundled with Winamp).\r\nThe actions are prefixed with ""NxS Balloon Tip:"".\r\nGo check it out under the page ""Global Hotkeys"" on the left.",
+                    IDC_STATIC,15,180,235,35
+    GROUPBOX        "Plug-in",IDC_STATIC,5,5,255,45
+    CONTROL         "Display on playback state changes",IDC_PBSTATECHANGES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,115,20,135,10
+    GROUPBOX        "Timeout: x sec.",IDC_GBTIMEOUT,5,115,109,50
+    CONTROL         "Slider1",IDC_TBTIMEOUT,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,10,130,101,20
+    LTEXT           "1",IDC_STATIC,17,150,10,8
+    CTEXT           "15",IDC_STATIC,50,150,18,8
+    RTEXT           "30",IDC_STATIC,88,150,18,8
+    CONTROL         "Display on volume/balance changes",IDC_VOLCHANGES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,115,30,135,10
+    CONTROL         "Use Media Library",IDC_USEMLCB,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,30,90,10
+    GROUPBOX        "Misc.",IDC_STATIC,120,115,140,50
+    CONTROL         "Display on stream title changes",
+                    IDC_DISPLAYONTITLECHANGES,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_TABSTOP,127,129,124,11
+    CONTROL         "Update MSN Messenger",IDC_UPDATEMSNCHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,127,145,92,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 2,6,0,0
+ PRODUCTVERSION 2,6,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Written by Saivert"
+            VALUE "FileDescription", "Winamp Plugin that displays a balloon when the song changes."
+            VALUE "FileVersion", "2.6"
+            VALUE "InternalName", "gen_nxsballoon"
+            VALUE "LegalCopyright", "Copyright © 2003"
+            VALUE "OriginalFilename", "gen_nxsballoon.dll"
+            VALUE "ProductName", "NxS Balloon Tip Notification Plugin"
+            VALUE "ProductVersion", "2.6"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Norwegian (Bokmal) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDOK                    "Click to close the dialog box."
+END
+
+STRINGTABLE 
+BEGIN
+    IDC_ENABLEDCB           "Uncheck this to completely disable the plug-in."
+    IDC_DEFBUTTON           "If you click this button, the format string is reverted to the default one."
+    IDC_SYNTAXBTN           "Click to open the ReadMe document which also contains the format syntax help."
+    IDC_URLBUTTON           "Click to launch your browser at this url."
+END
+
+STRINGTABLE 
+BEGIN
+    IDC_URLBUTTON2          "Click to visit this plug-in's forum threads."
+    IDC_READMEBTN           "Click to open the ReadMe document which also contains the format syntax help."
+    IDC_DEFBALLOONTITLEBTN  "Click to set the balloon title to the default of ""Now playing...""."
+    IDC_TBTIMEOUT           "Adjust this to set the timeout. The balloon will be hidden after this period."
+    IDC_TEST                "Click to show the balloon, so you can check out the new settings."
+END
+
+STRINGTABLE 
+BEGIN
+    IDC_ICONSPIN            "Click the up or down arrow to select the icon to use for the plug-in's own tray icon."
+    IDC_USEWATRAYCB         "Winamp must be configured to show a tray icon or use Agent's tray icon to use this."
+    IDC_ICONCTL             "Click the up or down arrow to select the icon to use for the plug-in's own tray icon."
+    IDC_VOLCHANGES          "Enable this to dispay/update the balloon on volume/balance changes."
+    IDS_DEFFORMATSTR        "$caps($if2(%watitle%,$filepart(%filename%)))[\\n%album%$if(%year%,' ('%year%')',)][\\n%genre%]\\n$ifgreater(%type%,0,%videoinfo%,%srate%' kHz, '%bitrate%' kbps'$ifgreater(%vbr%,0,' (VBR)',)', '$caps(%channels%))"
+    IDS_DEFBALLOONTITLE     "$ifgreater(%pbstate%,0,$ifgreater(%pbstate%,1,Playback paused!,Playing $ifgreater(%type%,0,videoclip,song) %plpos%$ifgreater(%pllen%,0, of %pllen%,)),Playback stopped!)"
+    IDS_DEFCLIPBOARDTITLE   "%watitle%"
+    IDC_USEMLCB             "Will use the Media Library for metadata lookups if checked."
+    IDC_CLIPBOARDTITLEEDIT  "Specify format of text copied to clipboard here."
+END
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

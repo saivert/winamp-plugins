@@ -1,0 +1,15 @@
+NxS Skinned Menus plug-in - ReadMe
+
+  Overview
+----------
+  This plug-in skins the popup menus of Winamp.
+
+  Tech info
+-----------
+  This plug-in uses MFC because I'm using a class written by dan.g to do the skinning.
+  I though I could write a plug-in for Winamp which uses this so Winamp gets cool menus as well.
+
+  Credits
+---------
+  Written by Saivert
+  Uses code written by dan.g (The Code Project)

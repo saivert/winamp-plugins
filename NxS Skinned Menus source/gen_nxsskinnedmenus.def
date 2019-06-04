@@ -1,0 +1,7 @@
+; gen_template.def : Declares the module parameters for the DLL.
+
+LIBRARY      "gen_template"
+DESCRIPTION  'gen_template Windows Dynamic Link Library'
+
+EXPORTS
+    winampGetGeneralPurposePlugin	@1

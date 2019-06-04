@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>NxS Thinger control - ReadMe</title>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<style type="text/css">
+/*<![CDATA[*/
+
+body
+        {
+        padding: 10px;
+        background-color: #F0F0F0;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        font-weight: normal;
+        }
+
+p
+        {
+        font-size: 100%;
+        margin: 20px;
+        }
+
+.center
+        {
+        text-align: center;
+        }
+
+table
+        {
+        margin: auto;
+        text-align: left;
+        background-color: #FFFFFF;
+        }
+
+.maintable
+        {
+        border: 2px solid #376EAB;
+        }
+
+.parameter
+        {
+        font-weight: bold;
+        color: #6586AC;
+        }
+
+h1
+        {
+        font-size: 220%;
+        color: #333333;
+        font-weight: normal;
+        text-align: center;
+        margin: 20px;
+        }
+
+h2
+        {
+        font-size: 165%;
+        color: #7A7272;
+        font-weight: normal;
+        }
+
+h3
+        {
+        font-size: 140%;
+        font-weight: bold;
+        color: #303030;
+        margin: 20px;
+        }
+
+pre     {
+        font-size: 100%;
+        margin: 20px;
+        }
+
+div
+        {
+        margin: 20px;
+        }
+
+a:link, a:visited, a:active, .trigger
+        {
+        color: #294F75;
+        text-decoration: none;
+        }
+
+a:hover
+        {
+        color: #182634;
+        text-decoration: underline;
+        }
+
+.subtable
+        {
+        border: 0px;
+        margin-left: 20px;
+        margin-right: 20px;
+        }
+
+.lefttable
+        {
+        background-color: #CCCCCC;
+        vertical-align: top;
+        }
+
+.righttable
+        {
+        background-color: #EEEEEE;
+        vertical-align: top;
+        }
+
+.trigger, .options
+        {
+        cursor: pointer;
+        cursor: hand;
+        }
+
+.toggle
+        {
+        display: none;
+	margin: 0px;
+        }
+
+.options
+        {
+        color: #294F75;
+        }
+
+/*]]>*/
+</style>
+
+<script type="text/javascript">
+//<![CDATA[
+
+   var sopentext  = "- Open section";
+   var sclosetext = "+ Close section";
+
+   function toggle(item, section) {
+   
+      if(document.all) {
+        if(document.all[section].style.display == "block") {
+           document.all[section].style.display = "none";
+           document.all[item].innerText = sopentext;
+        }
+        else
+        {              
+           document.all[section].style.display = "block";
+           document.all[item].innerText = sclosetext;
+        }
+      }
+      else
+      {
+      if(document.getElementById(section).style.display == "block") {
+         document.getElementById(section).style.display = "none";
+         document.getElementById(item).innerText = sopentext;
+         }
+      else
+         {              
+         document.getElementById(section).style.display = "block";
+         document.getElementById(image).innerText = sclosetext;
+         }
+      }
+   
+   }
+
+   function expandall() {
+
+     var divNodeList = document.getElementsByTagName('div'); 
+     for (i = 0; i < divNodeList.length; i++) { 
+        if(divNodeList[i].id) {
+           divNodeList[i].style.display = "block";
+           document.getElementById('trigger_' + divNodeList[i].id.substr(7)).innerText = sclosetext;
+        }
+     }
+     
+   }
+
+   function collapseall() {
+
+     var divNodeList = document.getElementsByTagName('div'); 
+     for (i = 0; i < divNodeList.length; i++) { 
+        if(divNodeList[i].id) {
+           divNodeList[i].style.display = "none";
+           document.getElementById('trigger_' + divNodeList[i].id.substr(7)).innerText = sopentext;
+        }
+     }
+
+   }
+
+//]]>
+</script>
+
+</head>
+
+
+<body>
+<div class="center">
+<table width="750" class="maintable" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+
+<h1>NxS Thinger control - ReadMe</h1>
+<p>Use these to open/close all sections:
+<a onclick="expandall()" class="options">[Open all]</a>&nbsp;
+<a onclick="collapseall()" class="options">[Close all]</a></p>
+
+<p><blockquote><i>- Remember all the lost lifes in Thailand, Sri-Lanka, Eastern India,
+Indonesia and the rest of the south-east asia. -</i></blockquote></p>
+
+<div>
+
+<h2>Overview</h2>
+<p>
+  NxS Thinger is an attempt to port the Thinger component in
+  Winamp3 to a Winamp 2.x/5.x plugin.
+  It supports these "components":
+  <ul>
+    <li>Playlist Editor</li>
+    <li>Media Library</li>
+    <li>Video window</li>
+    <li>Visualization</li>
+    <li>Preferences</li>
+  </ul>
+
+  It also exposes an API that other plugins can use to add their own icons
+  to the Thinger window (ala Global Hotkeys plugin).<br/>
+<br/>
+  Check out the "What's new?" section below...
+
+</p>
+
+<h2>Thinger API</h2>
+<p>The following describes how to use the Thinger API...<br/>
+Note: The Thinger API now actually works (as from version 0.512).</p>
+<p><span class="trigger" id="trigger_api" onclick="toggle('trigger_api', 'toggle_api');">- Open section</span></p>
+<div class="toggle" id="toggle_api">
+<p>First of all you need to place the following code in your source file:</p>
+<pre>
+// Flags to use for the dwFlags member of NxSThingerIconStruct
+#define NTIS_ADD          1
+#define NTIS_MODIFY       2
+#define NTIS_DELETE       4
+#define NTIS_NOMSG        8
+#define NTIS_NOICON       16
+#define NTIS_NODESC       32
+#define NTIS_HIDDEN       64
+#define NTIS_BITMAP       128
+
+typedef struct _NxSThingerIconStruct {
+  DWORD dwFlags; /* NTIS_* flags */
+  UINT uIconId; /* Only used for NTIS_MODIFY and NTIS_DELETE flags */
+  LPTSTR lpszDesc;
+  /* These are HBITMAP if the NTIS_BITMAP flag is used. */
+  union {
+	HICON hIcon;
+	HBITMAP hBitmap;
+  };
+  union {
+	HICON hIconHighlight;
+	HBITMAP hBitmapHighlight;
+  };
+
+  /* Following is the message to send when icon is clicked */
+  HWND hWnd; /* Set to NULL to send to Winamp.
+                From v0.51 on, this actually works. ;-) */
+  UINT uMsg;
+  WPARAM wParam;
+  LPARAM lParam;
+} NxSThingerIconStruct, * lpNxSThingerIconStruct;
+</pre>
+<p>Assuming the handle to Winamp is located in "plugin.hwndParent" we call this
+to get the message number to use when using the API:</p>
+<pre>
+int iThingerIPC = SendMessage(plugin.hwndParent, WM_WA_IPC,
+	(WPARAM)"NxSThingerIPCMsg", IPC_REGISTER_WINAMP_IPCMESSAGE);
+</pre>
+<p>To add an icon to the Thinger this will do the trick:</p>
+<pre>
+NxSThingerIconStruct ntis;
+ntis.dwFlags = NTIS_ADD;
+ntis.lpszDesc = "My thinger icon :)";
+ntis.hWnd = myfunnyhwnd;
+ntis.uMsg = WM_USER+1;
+ntis.wParam = 0;
+ntis.lParam = 0;
+
+UINT myiconid = SendMessage(plugin.hwndParent, WM_WA_IPC,
+	(WPARAM)&ntis, (LPARAM)iThingerIPC);
+</pre>
+<p>Remember to keep the value in myiconid around to be able to delete the icon, like:</p>
+<pre>
+NxSThingerIconStruct ntis;
+ntis.dwFlags = NTIS_DELETE;
+ntis.hIcon = LoadIcon(plugin.hDllInstance, (LPCTSTR)IDI_MYICON);
+ntis.uIconId = myiconid;
+
+SendMessage(plugin.hwndParent, WM_WA_IPC, (WPARAM)&ntis, (LPARAM)iThingerIPC);
+</pre>
+<p>Or modifying:</p>
+<pre>
+NxSThingerIconStruct ntis;
+ntis.dwFlags = NTIS_MODIFY | NTIS_NOICON | NTIS_NOMSG;
+ntis.uIconId = myiconid;
+ntis.lpszDesc = "New description!!";
+
+SendMessage(plugin.hwndParent, WM_WA_IPC, (WPARAM)&ntis, (LPARAM)iThingerIPC);
+</pre>
+<p><b>NOTE I:</b><br/>
+You don't have to delete the icon in your plugin's quit function because NxS Thinger does this
+automatically. You only have to delete the icon if you need to remove it during the lifetime
+of Winamp, but usually you can just hide the icon by modifying it and incuding NTIS_HIDDEN
+flag in the dwFlags member of the NxSThingerIconStruct structure.</p>
+<p><b>NOTE II:</b><br/>
+You must use the Thinger API in your plugin's "init" function because your plugin may be loaded
+by Winamp before the NxS Thinger plugin is loaded, and then the IPC message isn't registered
+yet. Just post a message to a Window of yours (or Winamp) and do the Thinger icon adding in the
+message handler (subclass if using Winamp's window), like in this example:</p>
+
+<p><span class="trigger" id="trigger_tags2" onclick="toggle('trigger_tags2', 'toggle_tags2');">- Open section</span></p>
+<div class="toggle" id="toggle_tags2">
+
+<p>Declare this at global scope:</p>
+<pre>
+WNDPROC lpWinampWndProcOld;
+</pre>
+
+<p>In your "init" function:</p>
+<pre>
+lpWinampWndProcOld = (WNDPROC)SetWindowLong(plugin.hwndParent,
+  GWL_WNDPROC, (LONG)WinampSubclass);
+PostMessage(plugin.hwndParent, WM_USER+100, 0, 0);
+</pre>
+<p>This is the replacement window procedure (the subclass):</p>
+<pre>
+LRESULT CALLBACK WinampSubclass(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+  if (uMsg==WM_USER && wParam==0 && lParam==0)
+  {
+    NxSThingerIconStruct ntis;
+    ntis.dwFlags = NTIS_ADD;
+    ntis.lpszDesc = "My thinger icon :)";
+    ntis.hWnd = myfunnyhwnd;
+    ntis.uMsg = WM-USER+1;
+    ntis.wParam = 0;
+    ntis.lParam = 0;
+
+    g_myiconid = SendMessage(plugin.hwndParent, WM_WA_IPC,
+	(WPARAM)&ntis, (LPARAM)iThingerIPC);
+
+    /* Remove the subclass since it's not needed anymore */
+    SetWindowLong(plugin.hwndParent, GWL_WNDPROC, (LONG)lpWinampWndProcOld);
+
+  }
+  return CallWindowProc(lpWinampWndProcOld, hwnd, uMsg, wParam, lParam);
+}
+</pre>
+</div>
+</div>
+
+
+<h2>Notes</h2>
+<p><span class="trigger" id="trigger_devnotes" onclick="toggle('trigger_devnotes', 'toggle_devnotes');">- Open section</span></p>
+<div class="toggle" id="toggle_devnotes">
+
+<p>The source code for this plug-in is included with the installation package.</p>
+<p>Someone suggested me to add a menu item to Winamp's Main menu for each icon added to the Thinger.
+I will never ever implement this. NxS Thinger is only made to replicate the Thinger from Winamp 3 and
+that's it.</p>
+</div>
+
+<h2>Contact</h2>
+<table class="subtable">
+<tr><td class="lefttable">Homepage</td><td class="righttable">
+<a href="http://inthegray.com/saivert/">http://inthegray.com/saivert/</a>
+</td></tr>
+<tr><td class="lefttable">E-Mail</td><td class="righttable">
+<a href="mailto:saivert@gmail.com">saivert@gmail.com</a>
+</td></tr>
+</table>
+
+<a name="version_history">
+<h2>Version history</h2>
+</a>
+<p><span class="trigger" id="trigger_vh" onclick="toggle('trigger_vh', 'toggle_vh');">- Open section</span></p>
+<div class="toggle" id="toggle_vh">
+<ul>
+
+  <li>Version 0.53 (February 27th 2005)
+    <ul>
+      <li>Improved configuration dialog.</li>
+    </ul>
+  </li>
+
+  <li>Version 0.52 (February 6th 2005)
+    <ul>
+      <li>Added: Option to make icons dimmed when user presses scroll buttons<br/>
+      Tech. note: This uses the "GdiAlphaBlend" function.</li>
+      <li>Changed: NxS Thinger is now using the "GdiTransparentBlt" GDI function instead of it's
+      internal "True Mask method" to draw the icons with transparency.</li>
+      <li>Skipped version numbers up to 0.52</li>
+    </ul>
+  </li>
+
+
+  <li>Version 0.516 (January 13th 2005)
+    <ul>
+      <li>Fixed: Duplicate menu item issue with Modern Skins now fixed.</li>
+    </ul>
+  </li>
+
+  <li>Version 0.515 (December 24th 2004)
+    <ul>
+      <li>Compiled with Visual C++ 2005 Express Edition Beta</li>
+      <li>Source code more compatible with IA64 (not tested on 64bit processor yet).</li>
+      <li>Option to select which of the built in icons to display.</li>
+      <li>Context-menu now only appears when you right-click the icon area.</li>
+    </ul>
+  </li>
+
+  <li>Version 0.514 (December 9th 2004)
+    <ul>
+      <li>Removed "Test: Add an icon" and "Test: Delete an icon" from the Thinger menu.
+      This was misleading users who thought they could right-click icons and delete them.</li>
+      <li>The built in Media Library icon is now not added if the Media Library plugin (gen_ml.dll)
+      is not installed.</li>
+      <li>Bitmaps are now drawn transparently. All areas of the bitmaps that has the color
+      RGB(255,0,255) or Fuchsia will be transparent.</li>
+    </ul>
+  </li>
+
+  <li>Version 0.513 (December 6th 2004)
+    <ul>
+      <li>Bundled an example plugin project that demonstrates how to use the Thinger API.<br/>
+      This plugin will be copied to "Winamp\Plugins\NxS Thinger vx.x Source\Example plugin".<br/>
+      I hope this example plugin gets rid of all the misunderstandings around the API.</li>
+	  <li>Added a new menu item to Thingers right-click menu: "Debug: Show icon info".
+      Use this to display a message box with information about the icon you right-clicked.</li>
+    </ul>
+  </li>
+
+
+  <li>Version 0.512 (December 2nd to 5th 2004)
+    <ul>
+      <li>The NTIS_MODIFY flag now *really* works. Sorry ppl! Again...</li>
+      <li>The bugs when not showing statusbar is fixed.</li>
+	  <li>The source code for this plugin now contains more comments for the interested.</li>
+	  <li>NxSThingerAPI.h is now more documented. Read the file "NxSThingerAPI.h" for more.</li>
+    </ul>
+  </li>
+
+  <li>Version 0.51 (December 1st 2004)
+    <ul>
+      <li>A couple of bug fixes. Thanks Safai!</li>
+      <li>Fix: No more infinite scroll when clicking right scroll button.</li>
+    </ul>
+  </li>
+
+
+  <li>Version 0.5 (November 27th 2004)
+    <ul>
+      <li>HTML ReadMe! :-)</li>
+      <li>The NTIS_MODIFY flag now works. Sorry ppl! :-></li>
+      <li>New icon for Winamp's preferences added.</li>
+      <li>"NxS Thinger" menu item added to Winamp's main menu.</li>
+      <li>"About.." menu item for Thinger's right-click menu is replaced with a "Config..." menu item.</li>
+    </ul>
+  </li>
+
+  <li>Version 0.4
+    <ul>
+      <li>Thinger API Completed. Now you can add your own icons to the Thinger.</li>
+      <li>Configuration dialog fixed. It should now be of the correct size.</li>
+    </ul>
+  </li>
+
+  <li>Version 0.3
+    <ul>
+      <li>Better looking icons. Highlights when mouse hovers over them.</li>
+      <li>It now behaves better when modern skins is in use. It doesn't try to enforce a
+      smaller height than 116 when Modern skins is in use. It will not look as good though.</li>
+      <li>Tooltip for the Lightning bolt icon is now "Toggle Thinger".</li>
+      <li>Better looking configuration dialog.</li>
+    </ul>
+  </li>
+
+  <li>Version 0.2
+    <ul>
+      <li>Fixed size of Thinger window.</li>
+    </ul>
+  </li>
+  <li>Version 0.1
+    <ul>
+      <li>Everything...</li>
+    </ul>
+  </li>
+
+</ul>
+</div>
+
+<h2>Known bugs list</h2>
+<ul>
+   <li>When "Use Winamp's tray icon" is enabled and you are using Winamp Agent's tray icon
+   and are running multiple instances of Winamp from same program folder, two instances of this
+   plug-in shares the single Winamp Agent tray icon and weird things may occur. It is best
+   to just run one instance in this case. If you have configured Winamp to display it's own
+   tray icon, then this is not a problem.</li>
+</ul>
+
+<h2>License</h2>
+<p><span class="trigger" id="trigger_lic" onclick="toggle('trigger_lic', 'toggle_lic');">- Open section</span></p>
+<div class="toggle" id="toggle_lic">
+
+<pre>
+This software is provided 'as-is', without any express or implied
+warranty. In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute
+it freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented;
+   you must not claim that you wrote the original software.
+   If you use this software in a product, an acknowledgment in the
+   product documentation would be appreciated but is not required.
+2. Altered versions must be plainly marked as such,
+   and must not be misrepresented as being the original software.
+3. This notice may not be removed or altered from any distribution.
+</pre>
+
+</div>
+
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>
