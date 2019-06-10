@@ -1,0 +1,59 @@
+//*****************************************************************************
+//
+//   File:   ashHelloWorld.odl
+//
+//   Author:   Joel Alley
+//
+//   Date:   March 9, 1998
+//
+//   Description:   This file contains the definition of a type library for 
+//               the ashHelloWorld example.  It is compiled by the MIDL
+//               compiler to produce the ashHelloWorld.h, ashhelloworld_i.c,
+//               and ashHelloWorld.tlb files, which are then used by the 
+//               ActiveX Script Host.
+//
+//   Modifications:   
+//****************************************************************************/
+#include "MyDispids.h"
+
+[ uuid(C3079A20-B425-11d1-94A1-006008939020), version(1.0) ]
+library ashHelloWorld
+{
+   importlib("stdole32.tlb");
+
+   [ uuid(156EE0C1-B426-11d1-94A1-006008939020) ]
+   dispinterface ISayHello
+   {
+      properties:
+      [id( 1)] long Version;
+      [id( 2)] long Volume;
+	  [id( 3)] long Panning;
+
+      methods:
+	  [id( 4)] void AddToLog( BSTR szText );
+      [id( 5)] void Play( void );
+      [id( 6)] void Stop( void );
+	  [id( 7)] void Pause( void );
+	  [id( 8)] void Next( void );
+	  [id( 9)] void Prev( void );
+	  [id(10)] long GetPlaylistLength( void );
+   };
+
+   [ uuid(A5673BE0-B512-11d1-94A1-006008939020) ]
+   dispinterface ISayHelloEvents
+   {
+      properties:
+      //none
+
+      methods:
+      [id(DISPID_ONSONGCHANGE)] void OnSongChange( void );
+   };
+
+
+   [ uuid(854C92C1-B426-11d1-94A1-006008939020) ]
+   coclass ashObject
+   {
+      [default] dispinterface ISayHello;
+      [default, source] interface ISayHelloEvents;
+   };
+};

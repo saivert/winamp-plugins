@@ -1,0 +1,199 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT DIALOG DISCARDABLE  0, 0, 272, 231
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "{version}",IDC_VERSION,18,55,235,25
+    CTEXT           "Written by Saivert (Norway)",IDC_AUTHOR,18,85,235,25
+    CONTROL         "http://members.tripod.com/files_saivert/",IDC_HOMEPAGE,
+                    "NxSWebLink",WS_TABSTOP | 0x340,48,135,175,10
+    CONTROL         "http://www.winamp.com/",IDC_HOMEPAGE2,"NxSWebLink",
+                    WS_TABSTOP | 0x340,48,150,175,10
+    CONTROL         "Visit the ""Winamp Scripting"" forum thread.",
+                    IDC_HOMEPAGE3,"NxSWebLink",WS_TABSTOP | 0x340,48,165,175,
+                    10
+END
+
+IDD_CONFIGPAGE DIALOGEX 0, 0, 276, 251
+STYLE DS_CONTROL | WS_CHILD
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Tab1",IDC_TAB1,"SysTabControl32",TCS_TOOLTIPS | 
+                    WS_TABSTOP,0,0,275,250
+END
+
+IDD_GENERAL DIALOGEX 0, 0, 267, 230
+STYLE DS_MODALFRAME | DS_CONTROL | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "General"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Script page",IDC_LINKTOPAGE,"NxSWebLink",WS_TABSTOP,207,
+                    215,37,8
+    LTEXT           "More stuff to come. Head on to the",IDC_STATIC,95,215,
+                    111,8
+    LTEXT           "...",IDC_STATIC,247,215,8,8
+    GROUPBOX        "Script",IDC_STATIC,5,5,255,55
+    LTEXT           "Language:",IDC_STATIC,15,22,35,8
+    COMBOBOX        IDC_SCLANGCOMBO,55,20,200,200,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "",IDC_SCLANG,65,40,190,8
+    LTEXT           "Script selected:",IDC_STATIC,10,40,50,8
+    GROUPBOX        "Examples",IDC_STATIC,5,65,255,70
+    PUSHBUTTON      "Load into script editor",IDC_LOADSAMPLE,155,100,95,14
+    LTEXT           "This plug-in comes with several sample scripts built-in. You may select one from the list and click the button to try it out.",
+                    IDC_STATIC,15,80,240,20
+    COMBOBOX        IDC_SAMPLECOMBO,15,101,130,115,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Warning: This overwrites your current script, so please save it!",
+                    IDC_STATIC,15,120,196,8
+END
+
+IDD_SCRIPT DIALOGEX 0, 0, 267, 226
+STYLE DS_MODALFRAME | DS_CONTROL | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "Script"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_SCRIPTEDIT,5,15,255,190,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN | 
+                    WS_VSCROLL | WS_HSCROLL
+    PUSHBUTTON      "Execute",IDC_RUNSCRIPT,209,210,50,14
+    PUSHBUTTON      "Clear script",IDC_CLEARSCRIPT,141,210,50,14
+    PUSHBUTTON      "Save to file",IDC_SAVETOFILE,73,210,50,14
+    PUSHBUTTON      "Load from file",IDC_LOADFROMFILE,5,210,50,14
+    LTEXT           "Here you can write your script:",IDC_STATIC,5,5,96,8
+    LISTBOX         IDC_LOGLIST,5,140,255,65,LBS_NOINTEGRALHEIGHT | NOT 
+                    WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 267
+        BOTTOMMARGIN, 81
+    END
+
+    IDD_GENERAL, DIALOG
+    BEGIN
+        RIGHTMARGIN, 265
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Norwegian (Bokmal) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NOR)
+#ifdef _WIN32
+LANGUAGE LANG_NORWEGIAN, SUBLANG_NORWEGIAN_BOKMAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// TYPELIB
+//
+
+1                       TYPELIB DISCARDABLE     "Debug\\ashHelloWorld.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EXECUTE             "Execute"
+    IDS_HALT                "Halt script"
+    IDS_EXAMPLE1            "Dim x\r\nx = 0\r\nWhile x < 100\r\n  Winamp.AddToLog ""Item "" & x\r\n  x = x + 1\r\nWend\r\n"
+    IDS_TIPABOUTPAGE        "Version information, homepage..."
+    IDS_TIPSCRIPTPAGE       "Manage scripts: Execute, Halt, Load & Save..."
+    IDS_TIPGENERALPAGE      "General configuration"
+    IDS_EXAMPLE2            "AddToLog ""Winamp version: "" & Hex(Winamp.Version)\r\nAddToLog ""Volume: "" & (Volume*100)/255 & ""%""\r\nIf Panning = 0 Then _\r\n  AddToLog ""Balance: Center""\r\nIf Panning > 0 Then _\r\n  AddToLog ""Balance: "" & (Panning*100)/127 & ""% Right""\r\nIf Panning < 0 Then _\r\n  AddToLog ""Balance: "" & -(Panning*100)/127 & ""% Left""\r\n\r\nAddToLog ""Playlist length: "" & GetPlaylistLength\r\n"
+    IDS_EXAMPLE3            "' How to use IE\r\nDim ie,iedoc\r\nSet ie = CreateObject(""InternetExplorer.Application"")\r\nie.Navigate ""about:blank""\r\nSet iedoc = ie.document\r\niedoc.write ""<html><head><title>A page</title></head>""\r\niedoc.write ""<body bgcolor=black text=#CEFFCE>""\r\niedoc.write ""<h1>A page</h1>""\r\niedoc.write ""<p>This is a page</p>""\r\niedoc.write ""<p>Volume: "" & (Volume/255)*100 & ""%</p>""\r\niedoc.write ""</body></html>""\r\n' We have finished writing the document, display IE\r\nie.visible = True\r\n"
+    IDS_EXAMPLE4            "Dim oShellLink, fso, WshShell, desk\r\nSet WshShell = CreateObject(""WScript.Shell"")\r\nSet fso = CreateObject(""Scripting.FileSystemObject"")\r\n\ndesk = WshShell.SpecialFolders(""Desktop"")\r\nAddToLog ""desk="" & desk\r\nSet oShellLink = WshShell.CreateShortcut(desk & ""\\song.lnk"")\r\noShellLink.TargetPath = ""notepad.exe""\r\noShellLink.Save\r\n"
+END
+
+#endif    // Norwegian (Bokmal) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
