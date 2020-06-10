@@ -1,0 +1,346 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAINDLG DIALOG DISCARDABLE  0, 0, 186, 121
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "COM Commander"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Avslutt",IDCLOSE,129,7,50,14
+    PUSHBUTTON      "&Skjul",IDCANCEL,129,24,50,14
+    GROUPBOX        "Status",IDC_STATIC,5,5,110,55
+    CONTROL         "Button 1 (CTS) - Stop",IDC_CHECKCTS,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,10,15,100,10
+    CONTROL         "Button 2 (DSR) - Play/Pause",IDC_CHECKDSR,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,10,25,100,10
+    CONTROL         "Button 3 (RING) - Prev.",IDC_CHECKRING,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,10,35,100,10
+    CONTROL         "Button 4 (RLSD) - Next",IDC_CHECKRLSD,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,10,45,100,10
+    LTEXT           "Listen to port:",IDC_STATIC,5,67,44,8
+    ICON            IDI_ICON1,IDC_LOGO,144,43,20,20,SS_NOTIFY
+    COMBOBOX        IDC_PORTS,50,65,48,60,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "For Winamp only!",IDC_STATIC,127,63,56,8
+    LTEXT           "N/A",IDC_WATITLE,5,100,175,18,SS_NOPREFIX
+    LTEXT           "Current title:",IDC_STATIC,5,90,45,8
+    RTEXT           "(00:00)",IDC_DURATION,145,90,35,8,SS_NOPREFIX
+    CTEXT           "",IDC_STATUS,55,90,90,8
+    PUSHBUTTON      "...",IDC_COMMCFG,100,65,15,14
+END
+
+IDD_ABOUTDLG DIALOG DISCARDABLE  0, 0, 247, 171
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,98,150,50,14
+    CONTROL         107,IDC_IMAGE,"Static",SS_BITMAP | SS_SUNKEN,5,15,233,89
+    CTEXT           "For use with the following equipment and equivalents:",
+                    IDC_STATIC,5,5,235,8
+    CTEXT           "COM Commander version 1.0 - written by Saivert <saivert@email.com>",
+                    IDC_STATIC,5,105,235,8
+    CONTROL         "http://members.tripod.com/files_saivert/",IDC_HOMEPAGE,
+                    "NxSWebLink",WS_TABSTOP,5,115,235,8
+    CONTROL         "http://www.winamp.com/player/",IDC_HOMEPAGE2,"NxSWebLink",
+                    WS_TABSTOP,109,136,104,8
+    LTEXT           "Download Winamp at:",IDC_STATIC,34,136,71,8
+    CONTROL         "ReadMe",IDC_HOMEPAGE3,"NxSWebLink",WS_TABSTOP,128,126,
+                    30,8
+    LTEXT           "Please read the",IDC_STATIC,76,126,50,8
+    LTEXT           "file.",IDC_STATIC,160,126,12,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MAINDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
+
+    IDD_ABOUTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 164
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon1.ico"
+IDI_ICON2               ICON    DISCARDABLE     "icon2.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU DISCARDABLE 
+BEGIN
+    POPUP "popup"
+    BEGIN
+        MENUITEM "&Show/Hide",                  ID_POPUP_SHOWHIDE
+        MENUITEM "&About...",                   ID_POPUP_ABOUT
+        MENUITEM "E&xit",                       IDCLOSE
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP  DISCARDABLE     "ctrlbox1.bmp"
+IDB_BITMAP2             BITMAP  DISCARDABLE     "ctrlbox2.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+1                       24      DISCARDABLE     "manifest.xml"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TOOLTIP             "COM Commander [click to show/hide]"
+    IDS_COMPORTS            "COM%d"
+    IDS_USAGE               "COM Commander supports these command line arguments:\r\n  /?\tThis message\r\n  /h\tStart hidden\r\n  /cx\tUse port x\r\n\r\nExamples:\r\n  /h /c2\r\n  /c1\r\n\r\n/c0 is invalid. Ports start with 1 (one)."
+    IDS_ERROROPENPORT       "Unable to open %s!"
+    IDS_ERROREVENTOBJ       "Unable to create event object!"
+    IDS_SHOWERR             "%s\r\nError code = %d\r\nMessage: %s"
+    IDS_ERRORWEBLINKREG     "Could not load the ""NxSWebLink"" control class!"
+    IDS_WANOTRUNNING        "<Winamp is not running>"
+    IDS_MENUSHOW            "&Show"
+    IDS_MENUHIDE            "&Hide"
+    IDS_WAPAUSED            "(Winamp is paused)"
+    IDS_WASTOPPED           "(Winamp is stopped)"
+    IDS_WAPLAYING           "(Winamp plays music)"
+    IDS_NOREADME            "ReadMe.txt could not be found in the COM Commander program folder!\r\nWas looking for ""%s""."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Norwegian (Bokmal) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NOR)
+#ifdef _WIN32
+LANGUAGE LANG_NORWEGIAN, SUBLANG_NORWEGIAN_BOKMAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTDLG DIALOG DISCARDABLE  0, 0, 247, 171
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Om"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,98,150,50,14
+    CONTROL         107,IDC_IMAGE,"Static",SS_BITMAP | SS_SUNKEN,5,15,233,89
+    CTEXT           "For bruk sammen med dette produktet eller lignende:",
+                    IDC_STATIC,5,5,235,8
+    CTEXT           "COM Commander versjon 1.0 - skrevet av Saivert <saivert@email.com>",
+                    IDC_STATIC,5,105,235,8
+    CONTROL         "http://members.tripod.com/files_saivert/",IDC_HOMEPAGE,
+                    "NxSWebLink",WS_TABSTOP,5,115,235,8
+    CONTROL         "http://www.winamp.com/player/",IDC_HOMEPAGE2,"NxSWebLink",
+                    WS_TABSTOP,110,136,104,8
+    LTEXT           "Laste ned Winamp fra:",IDC_STATIC,34,136,72,8
+    CONTROL         "ReadMe",IDC_HOMEPAGE3,"NxSWebLink",WS_TABSTOP,121,126,
+                    30,8
+    LTEXT           "Vennligst les",IDC_STATIC,78,126,40,8
+    LTEXT           "filen.",IDC_STATIC,153,126,16,8
+END
+
+IDD_MAINDLG DIALOG DISCARDABLE  0, 0, 186, 121
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "COM Commander"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Avslutt",IDCLOSE,129,7,50,14
+    PUSHBUTTON      "&Skjul",IDCANCEL,129,24,50,14
+    GROUPBOX        "Status",IDC_STATIC,5,5,110,55
+    CONTROL         "Knapp 1 (CTS) - Stopp",IDC_CHECKCTS,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,10,15,100,10
+    CONTROL         "Knapp 2 (DSR) - Spill av",IDC_CHECKDSR,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,10,25,100,10
+    CONTROL         "Knapp 3 (RING) - Forrige",IDC_CHECKRING,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,10,35,100,10
+    CONTROL         "Knapp 4 (RLSD) - Neste",IDC_CHECKRLSD,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,10,45,100,10
+    LTEXT           "Lytt til port:",IDC_STATIC,5,67,35,8
+    ICON            IDI_ICON1,IDC_LOGO,144,43,20,20,SS_NOTIFY
+    COMBOBOX        IDC_PORTS,50,65,48,60,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Kun for Winamp!",IDC_STATIC,127,63,54,8
+    LTEXT           "N/A",IDC_WATITLE,5,100,175,17,SS_NOPREFIX
+    LTEXT           "Gjeldende tittel:",IDC_STATIC,5,90,50,8
+    RTEXT           "(00:00)",IDC_DURATION,145,90,35,8,SS_NOPREFIX
+    CTEXT           "",IDC_STATUS,60,90,85,8
+    PUSHBUTTON      "...",IDC_COMMCFG,100,65,15,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_MAINDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU DISCARDABLE 
+BEGIN
+    POPUP "popup"
+    BEGIN
+        MENUITEM "&Vis/skjul",                  ID_POPUP_SHOWHIDE
+        MENUITEM "&Om...",                      ID_POPUP_ABOUT
+        MENUITEM "&Avslutt",                    IDCLOSE
+    END
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TOOLTIP             "COM Commander [klikk for å vise/skjule]"
+    IDS_COMPORTS            "COM%d"
+    IDS_USAGE               "COM Commander støtter disse kommandolinje argumentene:\r\n  /?\tHjelpetekst\r\n  /h\tStart skjult\r\n  /cx\tBenytt port x\r\n\r\nEksempler:\r\n  /h /c2\r\n  /c1\r\n\r\n/c0 er ugyldig. Porter starter med 1 (en)."
+    IDS_ERROROPENPORT       "Kan ikke åpne %s!"
+    IDS_ERROREVENTOBJ       "Kan ikke opprette hendelsesobjekt (eng: Event Object)!"
+    IDS_SHOWERR             "%s\r\nFeilkode = %d\r\nBeskjed: %s"
+    IDS_ERRORWEBLINKREG     "Kunne ikke laste ""NxSWebLink"" kontrollklassen!"
+    IDS_WANOTRUNNING        "<Winamp kjører ikke>"
+    IDS_MENUSHOW            "&Vis"
+    IDS_MENUHIDE            "&Skjul"
+    IDS_WAPAUSED            "(Winamp har tatt pause)"
+    IDS_WASTOPPED           "(Winamp er stoppet)"
+    IDS_WAPLAYING           "(Winamp spiller musikk)"
+    IDS_NOREADME            "Readme.txt filen ble ikke funnet i programmappen til COM Commander.\r\nLette etter ""%s""."
+END
+
+#endif    // Norwegian (Bokmal) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
